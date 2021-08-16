@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, Subject, throwError } from 'rxjs';
 import { Person } from '../models/person';
 import { EndPoints } from '../shared/end-points';
 import { catchError } from 'rxjs/operators';
@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PersonsService {
-
+  error = new Subject<string>();
   constructor(private http: HttpClient) { 
   }
 
@@ -25,7 +25,6 @@ export class PersonsService {
   }
 
   addPerson( person : Person ): Observable<any> {
-
     const headers = { 'content-type': 'application/json'}  
     const body=JSON.stringify(person);
     console.log(body)

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { PersonsService } from 'src/app/services/persons.service';
 
 @Component({
@@ -8,15 +9,29 @@ import { PersonsService } from 'src/app/services/persons.service';
 export class ListComponent implements OnInit {
 
   personsList = [];
+  error = null;
+  isError = false;
+  private errorSub: Subscription;
+  
   constructor(private personsService : PersonsService) {
     
    }
 
-  ngOnInit(): void {
-    this.personsService.listPersons().subscribe((persons) => {
+  ngOnInit() {
+    this.errorSub = this.personsService.error.subscribe(
+      errorMessage => {
+        this.error = errorMessage;
+        console.log(this.error);
+      });
+    this.personsService.listPersons().subscribe(
+      persons => {
       this.personsList=persons;
       console.log(persons);
-    })
+    },
+    error => {
+      this.isError=true;
+      this.error = error.message;
+    }
+    );
   }
-
 }
