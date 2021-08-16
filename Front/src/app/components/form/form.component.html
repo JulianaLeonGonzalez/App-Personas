@@ -13,7 +13,7 @@
             <span
               *ngIf="!signupForm.get('userData.name').valid && signupForm.get('userData.name').touched"
               class="help-block">
-              <span *ngIf="signupForm.get('userData.name').errors['required']">Este campo es requerido</span>
+              <span style="color: #ed1b24" *ngIf="signupForm.get('userData.name').errors['required']">Este campo es requerido</span>
             </span>
           </div>
           <div class="form-group">
@@ -23,7 +23,7 @@
               id="birth"
               formControlName="birth"
               class="form-control">
-            <span
+            <span style="color: #ed1b24"
               *ngIf="!signupForm.get('userData.birth').valid && signupForm.get('userData.birth').touched"
               class="help-block">Es necesario que ingrese una fecha</span>
           </div>

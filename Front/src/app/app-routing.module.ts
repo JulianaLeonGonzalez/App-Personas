@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 
-import { ListComponent} from './list/list.component';
-import { FormComponent } from './form/form.component';
+import { ListComponent} from './components/list/list.component';
+import { FormComponent } from './components/form/form.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/listPersons', pathMatch: 'full' },
@@ -17,3 +17,4 @@ const appRoutes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

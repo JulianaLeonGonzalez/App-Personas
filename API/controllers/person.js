@@ -6,7 +6,7 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'postgres',
-  password: 'postgres',
+  password: '...',
   port: 5438,
 })
 
@@ -15,14 +15,14 @@ exports.retrievePerson = (req, res, next) => {
     .query('SELECT * FROM Person')
     .then(result => {
       res.status(200).json({
-        message: 'Person created successfully!',
+        message: 'Lista de personas:',
         person: result.rows
       });
     })
     .catch(err => {
       console.log(err);
       res.status(500).json({
-        message: 'Error retrieving person'
+        message: 'Error obteniendo la lista de personas'
       });
     });;
     pool.end;
@@ -39,14 +39,14 @@ exports.createPerson = (req, res, next) => {
     .query('INSERT INTO Person (name, birth) VALUES($1, $2) RETURNING name', [name, birth])
     .then(result => {
       res.status(200).json({
-        message: 'Person created successfully!',
+        message: 'Persona creada de forma exitosa',
         person: result.rows
       });
     })
     .catch(err => {
       console.log(err);
       res.status(500).json({
-        message: 'Error creating person'
+        message: 'Error añadiendo la persona'
       });
     });;
     pool.end;
