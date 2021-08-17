@@ -51,6 +51,7 @@ export class FormComponent implements OnInit {
         this.error=error;
         if(error== "Http failure response for http://localhost:3000/create: 406 Not Acceptable") this.error="Los datos de los padres son incorrectos o no han sido registrados";
         if(error== "Http failure response for http://localhost:3000/create: 500 Internal Server Error") this.error="Error accediendo a la base de datos";
+        if(error== "Http failure response for http://localhost:3000/create: 400 Bad Request") this.error="Esta persona ya existe en la base de datos";
       }
     );
     this.signupForm.reset();

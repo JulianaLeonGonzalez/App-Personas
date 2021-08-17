@@ -10,5 +10,8 @@ CREATE TABLE IF NOT EXISTS Person (
   FOREIGN KEY (mother_id) REFERENCES Person (person_id)
 );
 
+INSERT INTO Person (name, birth) VALUES('Jorge Gonzalez', '1994-05-10');
+INSERT INTO Person (name, birth) VALUES('Ana Rodriguez', '1990-12-01');
+
 
 

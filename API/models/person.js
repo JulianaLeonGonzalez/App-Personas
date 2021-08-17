@@ -7,7 +7,10 @@ module.exports = class Person {
     this.mother_id = mother_id;
   }
 
-  static adopt() {
+  childrenList = [];
+
+  adopt(child) {
+    this.childrenList.push(child);
   }
 
 };
