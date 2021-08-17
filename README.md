@@ -1,5 +1,7 @@
 # App-Personas
 
+![](https://user-images.githubusercontent.com/60897075/129660424-1c0660f9-658c-4c2f-a249-c48677795530.jpg)
+
 Siga los pasos a continuación para correr la aplicación de forma local:
 
 1\. Descargue el repositorio mediante el comando:
