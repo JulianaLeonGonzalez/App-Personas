@@ -16,13 +16,13 @@ git clone https://github.com/JulianaLeonGonzalez/App-Personas.git
 cd App-Personas/docker
 ```
 
-3\. Ejecute el siguiente comando para contenerizar la base de datos Postgresql.
+3\. Ejecute el siguiente comando para contenerizar la base de datos Postgresql y añadir la tabla "Person" con los datos iniciales de prueba.
 
 ```
 docker-compose up -d
 ```
 
-4\. Ingrese al directorio API.
+4\. Ingrese al directorio API, donde se encuentra el backend de la aplicación.
 
 ```
 cd ..
@@ -41,13 +41,13 @@ npm install
 npm start
 ```
 
-6\. Si desea correr las pruebas unitarias puede hacerlo en una nueva terminal, dentro del directorio API, mediante el comando:
+6\. Si desea correr las pruebas unitarias puede hacerlo en una nueva terminal, dentro del directorio API, mediante el siguiente comando, recuerde que para este test son necesarios los datos de prueba mencionados en el paso 3 de la presente guía.
 
 ```
 npm test
 ```
 
-7\. En una nueva terminal ingrese al directorio Front.
+7\. En una nueva terminal ingrese al directorio Front, donde se encuentra el frontend de la aplicación.
 
 ```
 cd ..
