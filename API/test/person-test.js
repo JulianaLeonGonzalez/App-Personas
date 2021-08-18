@@ -1,3 +1,9 @@
+/**
+ * @fileoverview El archivo contiene las pruebas unitarias
+ * @version 1.0.0
+ * @author  Laura Juliana Leon <ljulianalg19@gmail.com>
+*/
+
 let chai = require('chai');
 let chaiHttp = require('chai-http');
 const expect = require('chai').expect;
@@ -36,7 +42,7 @@ describe('Insertar una nueva persona: ', () => {
     it('Deberia crear la persona correctamente, con padre asociado existente y sin asociar madre', (done) => {
         chai.request(url)
             .post('/create')
-            .send({ name: "Juliana Gonzalez", birth: "2005-10-06", fatherName: "Jorge Gonzalez", motherName: "No aplica" })
+            .send({ name: "Juliana Gonzalez", birth: "2005-10-06", fatherName: "JORGE GONZALEZ", motherName: "No aplica" })
             .end(function (err, res) {
                 console.log(res.body)
                 expect(res).to.have.status(200);
@@ -47,7 +53,7 @@ describe('Insertar una nueva persona: ', () => {
     it('Deberia crear la persona correctamente, con madre asociada existente y sin asociar padre', (done) => {
         chai.request(url)
             .post('/create')
-            .send({ name: "Maria Charry", birth: "2005-10-06", fatherName: "No aplica", motherName: "Ana Rodriguez" })
+            .send({ name: "Maria Charry", birth: "2005-10-06", fatherName: "No aplica", motherName: "ANA RODRIGUEZ" })
             .end(function (err, res) {
                 console.log(res.body)
                 expect(res).to.have.status(200);
@@ -58,7 +64,7 @@ describe('Insertar una nueva persona: ', () => {
     it('Deberia crear la persona correctamente, con ambos padres asociados y existan', (done) => {
         chai.request(url)
             .post('/create')
-            .send({ name: "Carlos Valencia", birth: "2005-10-06", fatherName: "Jorge Gonzalez", motherName: "Ana Rodriguez" })
+            .send({ name: "Carlos Valencia", birth: "2005-10-06", fatherName: "JORGE GONZALEZ", motherName: "ANA RODRIGUEZ" })
             .end(function (err, res) {
                 console.log(res.body)
                 expect(res).to.have.status(200);
@@ -71,7 +77,7 @@ describe('Insertar una nueva persona: ', () => {
     it('Deberia generar error, debido a que el padre no existe en la BD', (done) => {
         chai.request(url)
             .post('/create')
-            .send({ name: "Laura Leon", birth: "2005-10-06", fatherName: "Ansu Fati", motherName: "No aplica" })
+            .send({ name: "Laura Leon", birth: "2005-10-06", fatherName: "ANSU FATI", motherName: "No aplica" })
             .end(function (err, res) {
                 console.log(res.body)
                 expect(res).to.have.status(406);
@@ -82,7 +88,7 @@ describe('Insertar una nueva persona: ', () => {
     it('Deberia generar error, debido a que el padre no existe en la BD, aunque la madre si exista', (done) => {
         chai.request(url)
             .post('/create')
-            .send({ name: "Laura Leon", birth: "2005-10-06", fatherName: "Ansu Fati", motherName: "Ana Rodriguez" })
+            .send({ name: "Laura Leon", birth: "2005-10-06", fatherName: "ANSU FATI", motherName: "ANA RODRIGUEZ" })
             .end(function (err, res) {
                 console.log(res.body)
                 expect(res).to.have.status(406);
@@ -93,7 +99,7 @@ describe('Insertar una nueva persona: ', () => {
     it('Deberia generar error, debido a que la madre no existe en la BD', (done) => {
         chai.request(url)
             .post('/create')
-            .send({ name: "Laura Leon", birth: "2005-10-06", fatherName: "No aplica", motherName: "Rena Florez" })
+            .send({ name: "Laura Leon", birth: "2005-10-06", fatherName: "No aplica", motherName: "RENA FLOREZ" })
             .end(function (err, res) {
                 console.log(res.body)
                 expect(res).to.have.status(406);
@@ -104,7 +110,7 @@ describe('Insertar una nueva persona: ', () => {
     it('Deberia generar error, debido a que la madre no existe en la BD, aunque el padre si exista', (done) => {
         chai.request(url)
             .post('/create')
-            .send({ name: "Laura Leon", birth: "2005-10-06", fatherName: "Jorge Gonzalez", motherName: "Rena Florez" })
+            .send({ name: "Laura Leon", birth: "2005-10-06", fatherName: "JORGE GONZALEZ", motherName: "RENA FLOREZ" })
             .end(function (err, res) {
                 console.log(res.body)
                 expect(res).to.have.status(406);
@@ -115,7 +121,7 @@ describe('Insertar una nueva persona: ', () => {
     it('Deberia generar error, debido a que el padre y la madre no existen en la BD', (done) => {
         chai.request(url)
             .post('/create')
-            .send({ name: "Laura Leon", birth: "2005-10-06", fatherName: "Ansu Fati", motherName: "Rena Florez" })
+            .send({ name: "Laura Leon", birth: "2005-10-06", fatherName: "ANSU FATI", motherName: "RENA FLOREZ" })
             .end(function (err, res) {
                 console.log(res.body)
                 expect(res).to.have.status(406);

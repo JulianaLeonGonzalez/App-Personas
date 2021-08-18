@@ -1,3 +1,9 @@
+/**
+ * @fileoverview El componente header se eencarga del menú que permite navegar entre las rutas /listPersons y /addPerson
+ * @version 
+ * @author  Laura Juliana Leon <ljulianalg19@gmail.com>
+*/
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +13,6 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   constructor() { }
-
   ngOnInit(): void {
   }
 

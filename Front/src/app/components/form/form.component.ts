@@ -1,5 +1,11 @@
+/**
+ * @fileoverview El componente form se encarga de solicitar los datos al usuario y cuando el form es cargado llama la función addPerson del servicio persons.service
+ * @version 
+ * @author  Laura Juliana Leon <ljulianalg19@gmail.com>
+*/
+
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Person } from 'src/app/models/person';
 import { PersonsService } from 'src/app/services/persons.service';
@@ -14,8 +20,8 @@ export class FormComponent implements OnInit {
   error = null;
   isError = false;
   private errorSub: Subscription;
+
   constructor(private personsService : PersonsService) {
-    
   }
   signupForm: FormGroup;
   ngOnInit() {
@@ -57,7 +63,6 @@ export class FormComponent implements OnInit {
     this.signupForm.reset();
   }
   
-
   onHandleError() {
     this.isError = false;
   }

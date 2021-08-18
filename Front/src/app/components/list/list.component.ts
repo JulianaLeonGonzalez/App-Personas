@@ -1,3 +1,9 @@
+/**
+ * @fileoverview El componente list llama la función listPersons del servicio persons.service y luego muestra los datos en pantalla 
+ * @version 
+ * @author  Laura Juliana Leon <ljulianalg19@gmail.com>
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PersonsService } from 'src/app/services/persons.service';
@@ -14,7 +20,6 @@ export class ListComponent implements OnInit {
   private errorSub: Subscription;
   
   constructor(private personsService : PersonsService) {
-    
    }
 
   ngOnInit() {

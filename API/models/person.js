@@ -1,3 +1,9 @@
+/**
+ * @fileoverview Modelo de persona
+ * @version 1.0.0
+ * @author  Laura Juliana Leon <ljulianalg19@gmail.com>
+*/
+
 module.exports = class Person {
   constructor(id, name, birth, father_id, mother_id) {
     this.id = id;
