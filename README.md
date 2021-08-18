@@ -73,3 +73,11 @@ ng serve
 ```
 
 10\. En su navegador ingrese a la ruta http://localhost:4200/ una vez allí puede seleccionar la opción de ingresar una nueva persona o ver la lista de personas actual.
+
+**Lista de personas:**
+
+![](https://user-images.githubusercontent.com/60897075/129816750-084628a1-fa17-4bac-8eca-927ce1a3536f.png)
+
+**Agregar persona:**
+
+![](https://user-images.githubusercontent.com/60897075/129816774-0e2be670-9cd1-4467-a3de-29a57f2cf6b4.png)
