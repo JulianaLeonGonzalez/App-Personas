@@ -5,14 +5,23 @@ jobs:
       image: ubuntu-2004:current
     steps:
       - checkout
-      - run: docker-compose up -d
-      - run: docker ps -a
-      - run: sudo apt install curl
-      - run: curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-      - run: sudo apt-get install -y nodejs
       - run: 
+          name: Run Docker Compose Up
+          command: docker-compose up -d
+      - run: 
+          name: Install curl
+          command: sudo apt install curl
+      - run: 
+          name: Install Packages Repository 
+          command: curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+      - run: 
+          name: Install NodeJS
+          command: sudo apt-get install -y nodejs
+      - run: 
+          name: Install dependencies 
           working_directory: ~/project/API
           command: npm install
       - run: 
+          name: Run Test
           working_directory: ~/project/API
           command: npm run test
