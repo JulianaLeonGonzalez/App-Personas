@@ -1,0 +1,45 @@
+version: '3.7'
+services:
+    postgres:
+      image: postgres:10.5
+      restart: always
+      container_name: postgres
+      environment: 
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+      logging:
+        options:
+          max-size: 10m
+          max-file: "3"
+      ports:
+        - '5432:5432'
+      volumes:
+        - ./postgres-data:/var/lib/postgresql/data
+        # copy the sql script to create tables
+        - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    server:
+      container_name: nodejscontainer
+      build:
+        context: .
+        dockerfile: API/Dockerfile
+      command:
+        bash -c "npm install && npm start"
+      ports:
+        - "3000:3000"
+      volumes: # Volume binding
+        - './API:/usr/src/app'
+      depends_on:
+        - postgres
+    web:
+      container_name: angularcontainer
+      build:
+        context: .
+        dockerfile: Front/Dockerfile
+      ports:
+        - "4200:4200"
+      volumes: # Volume binding
+        - './Front:/usr/src/app' 
+      command:
+        bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
+      depends_on:
+        - server
