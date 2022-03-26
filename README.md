@@ -1,6 +1,6 @@
 # App-Personas
 
-![](https://user-images.githubusercontent.com/60897075/129660424-1c0660f9-658c-4c2f-a249-c48677795530.jpg)
+![](https://user-images.githubusercontent.com/60897075/160215874-57f2c923-f332-47ab-9825-0e1363b742ca.png)
 
 Siga los pasos a continuación para correr la aplicación de forma local.
 
@@ -29,6 +29,14 @@ docker-compose up -d
 ```
 
 4\. En su navegador ingrese a la ruta http://localhost:4200/ una vez allí puede seleccionar la opción de ingresar una nueva persona o ver la lista de personas actual.
+
+#### Registrar una nueva persona:
+
+![](https://user-images.githubusercontent.com/60897075/160215927-58125621-3cc8-4601-a0ca-56d1742b76c5.png)
+
+#### Listar personas registradas:
+
+![](https://user-images.githubusercontent.com/60897075/160215957-bbbeb473-c74c-465f-9d1b-b4842b2e984d.png)
 
 ### **Ejecución de pruebas unitarias**
 
